@@ -1,0 +1,76 @@
+<style>
+.clickable { cursor: pointer; }
+
+.thumb
+{
+    background-color: #CCC;
+    background-position: center center;
+    background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+    width: 100%;
+    height: 30%;
+}
+
+a.thumbnail:focus
+{
+	outline: none;
+}
+
+.x-button
+{
+	position: absolute;
+	overflow: hidden;
+	display: none;
+	top: 0;
+	width: 100%;
+}
+
+.img-button
+{
+	position: absolute;
+	bottom: 0;
+	display: none;
+	margin: 20px;
+}
+
+.img-button > button
+{
+	margin-right: 10px;
+}
+
+li:hover > .img-button,
+li:hover > .x-button
+{
+	display: block;
+}
+
+.delete-tag
+{
+	display: none;
+}
+
+tr:hover > td > .delete-tag
+{
+	display: inline-block;
+}
+
+.clicked
+{
+	background-color: #f5f5f5;
+}
+
+div.thumbnail { padding: 10px; }
+
+.row-fluid ul.thumbnails li.span12 + li { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span6:nth-child(2n + 3) { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span4:nth-child(3n + 4) { margin-left : 0px; }
+.row-fluid ul.thumbnails li.span3:nth-child(4n + 5) { margin-left : 0px; }
+
+
+
+</style>
+
+
+<body style="margin: 10px; display: none;">
+</body>

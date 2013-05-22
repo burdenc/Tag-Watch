@@ -1,0 +1,59 @@
+[
+    {
+        "type": "wallbase",
+        "name": "Wallbase",
+        "url": "http://wallbase.cc",
+        "tagUrl": "http://wallbase.cc/search/",
+        "privateOnly": false,
+        "nsfwFilter": false,
+		"icon": "http://wallbase.cc/fav.gif",
+        "tags":
+        [
+            {
+				"name": "video games",
+				"lastChecked": 0,
+				"nsfwFilter": true,
+				"autodl": true,
+				"newContent":
+				[
+				]
+			},
+			{
+				"name": "cars",
+				"lastChecked": 0,
+				"nsfwFilter": true,
+				"autodl": true,
+				"newContent":
+				[
+				]
+			},
+			{
+				"name": "anime",
+				"lastChecked": 0,
+				"nsfwFilter": true,
+				"autodl": true,
+				"newContent":
+				[
+				]
+			},
+			{
+				"name": "cats",
+				"lastChecked": 0,
+				"nsfwFilter": true,
+				"autodl": true,
+				"newContent":
+				[
+				]
+			},
+			{
+				"name": "comics",
+				"lastChecked": 0,
+				"nsfwFilter": true,
+				"autodl": true,
+				"newContent":
+				[
+				]
+			}
+        ]
+    }
+]

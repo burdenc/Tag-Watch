@@ -1,0 +1,22 @@
+TODO:
+
+* Site/api integration:
+    danbooru
+    pixiv
+    reddit
+
+* Site specific tag options (resolution, etc.)	
+	
+* Custom API support
+
+* Alternate site views (text list, etc.)
+
+* Encryption of sites
+
+* Auto watching support
+
+* Implement better AJAX UI (ex: spinning gifs while waiting)
+
+* Auto download support
+
+* Image preloading (site icons, image thumbnails, etc.)

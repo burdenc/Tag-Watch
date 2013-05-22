@@ -1,0 +1,98 @@
+<!-- Nav Header -->
+<ul class="breadcrumb" style="text-align:center">
+	<li><a href="sites.html">Home</a> <span class="divider">-</span></li>
+	<li><a href="about.html">About</a> <span class="divider">-</span></li>
+	<li><span class="heading1">Tag Watch</span> <span class="divider">-</span></li> 
+	<li><a href="options.html">Options</a> <span class="divider">-</span></li>
+	<li><a href="help.html">Help</a> </li>
+</ul>
+
+<!-- Sites Heading -->
+<div class="row-fluid" style="margin-bottom: 10px">
+<div class="span4 offset4">
+<span class="heading2">Sites</span>
+<a href="#addmodal" data-toggle="modal">
+	<button class="btn btn-primary" style="float:right; padding: 4px 5px 4px 5px; margin: 2px;" id="add-site"><i class="icon-plus icon-white"></i></button>
+</a>
+</div>
+</div>
+
+<!-- Sites -->
+<div class="row-fluid">
+<div class="span4 offset4">
+
+	<!-- Individual Site -->
+	{{#sites}}
+	<div class="site-container">
+	
+		<!-- Site Row -->
+		<div class="site-div clickable">
+			<div style="background-image: url('{{icon}}'); display: inline-block; height: 16px; width: 16px;"></div> <a href="tags.html#{{name}}" target="_blank">{{name}}</a>
+			<span class="updatedTags">{{{updatedTags}}}</span>
+		</div>
+		
+		<!-- Site Expando -->
+		<div class="site-options" style="position: relative; height: 150px">
+			<a href="{{url}}" target="_blank">{{url}}</a>
+			<div style="position: absolute; bottom: 0; margin-bottom: 10px;">
+				<button class="btn btn-small btn-primary reload">Reload</button>
+				<button class="btn btn-small btn-primary options">Options</button>
+			</div>
+			<div style="position: absolute; bottom: 0; right: 0; margin-bottom: 10px; margin-right: 10px">
+				<span class="label label-info">Tags: {{tags.length}}</span>
+			</div>
+		</div>
+		
+	</div>
+	{{/sites}}
+
+</div>
+</div>
+</div>
+
+<div id="addmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="addlabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3 id="addlabel">Add Site</h3>
+	</div>
+	<div class="modal-body">
+		<div class="alert alert-error" style="display: none;" id="noAPI">
+			<button type="button" class="close" id="closeAddAlert">&times;</button>
+			Tag Watch can't recognize the provided url. It's possible it has no functions to handle it.
+			Please check the help page for information on supported sites.
+		</div>
+		<input type="text" placeholder="Site URL" id="add-name" style="height: 30px" required="">
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-primary" id="addsite">Add Site</button>
+	</div>
+</div>
+
+<div id="optionsmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="optionlabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3 id="optionlabel">Add Site</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="options-name">Site Name</label>
+			<div class="controls">
+				<input type="text" id="options-name" style="height: 30px" required="">
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+			<label class="checkbox">
+				<input type="checkbox" id="options-filter"> Filter NSFW
+			</label>
+			</div>
+		</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-primary" id="saveoptions">Save</button>
+	</div>
+</div>

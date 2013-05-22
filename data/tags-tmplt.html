@@ -1,0 +1,109 @@
+<ul class="breadcrumb" style="text-align:center">
+	<li><a href="sites.html">Home</a> <span class="divider">-</span></li>
+	<li><a href="about.html">About</a> <span class="divider">-</span></li>
+	<li> <span style="font-family: inherit; font-weight: bold; color: inherit; text-rendering: optimizelegibility; font-size: 20px;">Tag Watch</span> <span class="divider">-</span></li> 
+	<li class="active"><a href="options.html">Options</a> <span class="divider">-</span></li>
+	<li class="active"><a href="help.html">Help</a> </li>
+</ul>
+
+<!-- Main Container -->
+<div class="container-fluid">
+
+<!-- Header Content -->
+<div class="row-fluid">
+	<div class="span2">
+		<h2><a href="{{site.url}}" target="_blank">{{site.name}}</a></h2>
+	</div>
+    <div class="span5">
+		{{#tag}}<h3><a href="{{tagUrl}}" target="_blank">{{tag.name}}</a></h3>{{/tag}}
+	</div>
+	{{#tag}}
+	<div class="span5" style="padding-top: 15px;">
+		<button class="btn btn-primary" type="button" style="margin:0;" id="reload"><i class="icon-repeat icon-white"></i> Reload</button>
+		<button class="btn btn-primary" type="button" style="margin:0;" id="reloadall"><i class="icon-repeat icon-white"></i> Reload All</button>
+		<button class="btn btn-primary" type="button" style="margin:0;" id="markread"><i class="icon-ok icon-white"></i> Mark Read</button>
+		<a href="#optionmodal" data-toggle="modal">
+			<button class="btn btn-primary" type="button" style="margin:0;" id="options"><i class="icon-cog icon-white"></i> Tag Options</button>
+		</a>
+	</div>
+	{{/tag}}
+</div>
+
+<!-- Main Content -->
+<div class="row-fluid">
+
+<!-- Tag Menu -->
+<div class="span2">
+	<table style="width:100%">
+		<tr>
+			<td><h4><i class="icon-tags" style="margin: 3px"></i>Tags</h4></td>
+			<td><a href="#addmodal" data-toggle="modal">
+				<span class="label label-info" style="float:right; padding: 4px 5px 4px 5px;" id="add-tag"><i class="icon-plus icon-white"></i></span>
+			</a></td>
+		</tr>
+	</table>
+	<div style="border:1px solid; border-radius:3px; margin:0px; padding:0px;">
+		<table class="table table-hover" style="margin:0px;">
+			<tbody>
+				{{#site.tags}} {{!Tag Select Menu}}
+				<tr class="clickable {{{clicked}}}" id="{{name}}"><td>{{name}}</td> <td style="margin-right:0">{{{badges}}}</td></tr>
+				{{/site.tags}}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- Main Thumbnail content, takes up 5/6 of window -->
+<div class="span10" style="padding:10px">
+<ul class="thumbnails">
+	{{#tag.newContent}} {{!Thumbnail Content}}
+    <li class="span3" style="position:relative;">
+		<a href="{{chooseThumbHref}}" class="thumbnail"  target="_blank">
+			<div class="thumb" style="display: block; background-image: url('{{nsfwChooseImg}}');"></div>
+		</a>
+		<div class="x-button">
+			<span class="badge pull-right clickable" style="margin: 10px;"><i class="icon-remove icon-white"></i></span>
+		</div>
+		<div class="img-button">
+			<a href="{{url}}" target="_blank"><button class="btn btn-primary btn-small" type="button"><i class="icon-globe icon-white"></i></button></a>
+			<a href="{{image}}" class="download"><button class="btn btn-primary btn-small" type="button"><i class="icon-download-alt icon-white"></i></button></a>
+		</div>
+    </li>
+	{{/tag.newContent}}
+</ul>
+</div>
+</div>
+</div>
+
+<div id="addmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3 id="myModalLabel">Add Tag</h3>
+	</div>
+	<div class="modal-body">
+		<input type="text" placeholder="Tag Name" id="add-name" style="height: 30px" required="" pattern="[\S]+">
+		<label class="checkbox">
+			<input type="checkbox" value="" id="add-filter">
+			Filter NSFW
+		</label>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-primary" id="addtag">Add Tag</button>
+	</div>
+</div>
+
+<div id="optionmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3 id="myModalLabel">Tag Options</h3>
+	</div>
+	<div class="modal-body">
+		{{#tag}}{{{tagOptions}}}{{/tag}}
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-danger" id="deletetag">Delete Tag</button>
+		<button class="btn btn-primary" id="savetag">Save Options</button>
+	</div>
+</div>
